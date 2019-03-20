@@ -2,77 +2,77 @@ module.exports = function(grunt){
   grunt.initConfig({
     eslint: {
       options: {
-        configFile: '.eslintrc.json'            
+        configFile: '.eslintrc.json'          
       },
-      target: ['*.js']  
+      target: ['*.js']          
     },
     csslint: {
       options: {
-        csslintrc: '.csslintrc'            
+        csslintrc: '.csslintrc'     
       },
-      src: '*.css'        
+      src: '*.css'    
     },
     htmlhint: {
       options: {
-        htmlhintrc: '.htmlhintrc'           
+        htmlhintrc: '.htmlhintrc'     
       },
-      src: '*.html'                        
-  },
-  mocha: {
-    test: {
-      src: ['test/index.html'],                                
+      src: '*.html'                    
     },
-    options: {
-      run: true,
-      reporter: 'Spec'                                                    
-    }        
-  },
-  htmlmin: {
-    options: {
-      collapseWhitespace: true,
-      preserveLineBreaks: false                                               
+    mocha: {
+      test: {
+        src: ['test/index.html'],                         
+      },
+      options: {
+        run: true,
+        reporter: 'Spec'  
+      }    
     },
-    files: {
-      src: 'dist/index.html',
-      dest: 'dist/index.html'                                                   
-    }        
-  },
-  cssmin: {
-    'dist/rectangle.css': 'rectangle.css'                          
-  },
-  uglify: {
-    release:{
+    htmlmin: {
+      options: {
+        collapseWhitespace: true,
+        preserveLineBreaks: false                          
+      },
       files: {
-        'dist/bundle.min.js': 'dist/bundle.js'                      
-      }                  
-    }                
-  },
-  useminPrepare: {
-    html: 'index.html',
-    options: {
-      dest: 'dist'                                              
-    }                      
-  },
-  usemin: {
-    html: ['dist/index.html']                           
-  },
-  concat: {
-    options: {
-      separator: ';'                                    
+        src: 'dist/index.html',
+        dest: 'dist/index.html'                                              
+      }   
     },
-    js: {
-      src: ['rectangle.js', 'calc.js'],
-        dest: 'dist/bundle.js'                                                
-    }        
-  },
-  clean: ['dist/bundle.js', '.tmp'],
-  copy: {
-    html: {
-      src: './index.html',
-      dest: './dist/index.html'                                                     }                  
-    }    
+    cssmin: {
+      'dist/rectangle.css': 'rectangle.css'                      
+    },
+    uglify: {
+      release:{
+        files: {
+          'dist/bundle.min.js': 'dist/bundle.js'                  
+        }            
+      }           
+    },
+    useminPrepare: {
+      html: 'index.html',
+      options: {
+        dest: 'dist'                                          
+      }                   
+    },
+    usemin: {
+      html: ['dist/index.html']                       
+    },
+    concat: {
+      options: {
+        separator: ';'                              
+      },
+      js: {
+        src: ['rectangle.js', 'calc.js'],
+        dest: 'dist/bundle.js'                                              
+      }   
+    },
+    clean: ['dist/bundle.js', '.tmp'],
+    copy: {
+      html: {
+        src: './index.html',
+        dest: './dist/index.html'                                         
+      }              
+    } 
   });
-
   grunt.loadNpmTasks('grunt-contrib-csslint');
   grunt.loadNpmTasks('grunt-htmlhint');
   grunt.loadNpmTasks('grunt-eslint');

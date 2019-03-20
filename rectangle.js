@@ -13,5 +13,5 @@ $(function(){
     var rect = rectangle();
     perimeter.val(rect.perimeter(w,h));
     area.val(rect.area(w,h));                  
-    });
+  });
 });
